@@ -23,5 +23,5 @@ app.get("/",(req,res)=>{
   res.render("home")
 })
 app.listen(8080,()=>{
-  console.log("server available at 8080");
+  console.log("available server  at 8080");
 })

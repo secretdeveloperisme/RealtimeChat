@@ -1,14 +1,24 @@
-<h1>Chat App</h1>
-<ul class="chat-list" id="chatList">
-  
-</ul>
-<form class="input-container">
-  <input type="text" id="messageText">
-  <input type="submit" value="submit" id="btnSend">
-</form>
-<script>
-  const socket = io();
-  socket.on("connect",()=>{
-    socket.send("hello!");
-  })
-</script>
+<div class="chat">
+  <h1 class="chat-title">Chat App</h1>
+  <ul class="chat-list" id="chatList">
+    <li class="chat-list-item">
+      <h2 class="chat-list-item__name">name</h2>
+      <p class="chat-list-items__message">lgffdgdfgorum qui, tenetur consequatur, voluptatibus ut perferendis!</p>
+    </li>
+    <li class="chat-list-item my-chat">
+      <h2 class="chat-list-item__name">name</h2>
+      <p class="chat-list-items__message">lgffdgdfgorum qui, tenetur consequatur, voluptatibus ut perferendis!</p>
+    </li>
+
+  </ul>
+  <form class="input-container">
+    <input type="text" id="messageText" class="input_message" placeholder="Enter Your Text Message !">
+    <input type="submit" value="send" id="btnSend" class="input_send">
+  </form>
+  <script>
+    const socket = io();
+    socket.on("connect",()=>{
+      socket.send("hello!");
+    })
+  </script>
+</div>
