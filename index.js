@@ -1,8 +1,7 @@
 const express = require('express');
 const http = require('http');
 const expressHandlebars = require("express-handlebars")
-const socket = require('socket.io');
-const { execArgv } = require('process');
+const {Server} = require('socket.io');
 const path = require('path');
 const app = express()
 app.engine("hbs",expressHandlebars({
@@ -13,15 +12,16 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.set("view engine", "hbs")
 
 const server = http.createServer(app)
-const io = socket(server)
-io.on("connection", client=>{
-  client.on("onChat", data=>{
-
+const io = new Server(server)
+io.on('connection', (socket) => {
+  socket.on("user_chat",(data)=>{
+    console.log(data);
+    io.emit("server_chat",data)
   })
-})
+});
 app.get("/",(req,res)=>{
   res.render("home")
 })
-app.listen(8080,()=>{
-  console.log("available server  at 8080");
+server.listen(8080,()=>{
+  console.log("available server at 8080");
 })

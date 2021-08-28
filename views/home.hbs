@@ -1,24 +1,20 @@
 <div class="chat">
+  <div class="modal" id="modal">
+    <div class="modal-name">
+      <h1>Enter Your Name</h1>
+      <div class="modal-input-container">
+        <input type="text" id="userName" placeholder="Enter your name">
+      </div>
+      <button id="btnName">okay</button>
+    </div>
+    <div class="modal-name-overlay"></div>
+  </div>
   <h1 class="chat-title">Chat App</h1>
-  <ul class="chat-list" id="chatList">
-    <li class="chat-list-item">
-      <h2 class="chat-list-item__name">name</h2>
-      <p class="chat-list-items__message">lgffdgdfgorum qui, tenetur consequatur, voluptatibus ut perferendis!</p>
-    </li>
-    <li class="chat-list-item my-chat">
-      <h2 class="chat-list-item__name">name</h2>
-      <p class="chat-list-items__message">lgffdgdfgorum qui, tenetur consequatur, voluptatibus ut perferendis!</p>
-    </li>
-
-  </ul>
-  <form class="input-container">
+  <ul class="chat-list" id="chatList"></ul>
+  <form class="input-container" autocomplete="off" id="formChat">
     <input type="text" id="messageText" class="input_message" placeholder="Enter Your Text Message !">
     <input type="submit" value="send" id="btnSend" class="input_send">
   </form>
-  <script>
-    const socket = io();
-    socket.on("connect",()=>{
-      socket.send("hello!");
-    })
-  </script>
+  <script src="/js/socket.io.js"></script>
+  <script src="/js/main.js"></script>
 </div>
